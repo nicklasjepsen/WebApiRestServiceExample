@@ -5,7 +5,7 @@ using System.Web;
 
 namespace WebApiRestServiceExample.Providers
 {
-    public class DateTimeProvider
+    public class DateTimeProvider : IDateTimeProvider
     {
         public DateTime GetTimeForTimeZone(string timeZoneName)
         {

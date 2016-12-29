@@ -14,13 +14,13 @@ namespace WebApiRestServiceExample.Controllers
 {
     public class CalendarController : ApiController
     {
-        private readonly GoogleMapsProvider googleMapsProvider;
-        private readonly DateTimeProvider dateTimeProvider;
+        private readonly IGoogleMapsProvider googleMapsProvider;
+        private readonly IDateTimeProvider dateTimeProvider;
 
-        public CalendarController()
+        public CalendarController(IGoogleMapsProvider googleMapsProvider, IDateTimeProvider dateTimeProvider)
         {
-            googleMapsProvider = new GoogleMapsProvider();
-            dateTimeProvider = new DateTimeProvider();
+            this.googleMapsProvider = googleMapsProvider;
+            this.dateTimeProvider = dateTimeProvider;
         }
 
         [HttpGet]

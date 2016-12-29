@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace WebApiRestServiceExample.Providers
 {
-    public class GoogleMapsProvider
+    public class GoogleMapsProvider : IGoogleMapsProvider
     {
         public async Task<string> GetTimeZoneName(string city)
         {
