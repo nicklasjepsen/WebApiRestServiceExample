@@ -27,7 +27,7 @@ namespace WebApiRestServiceExample.Controllers
         [Route("Calendar/{city}/LocalTime")]
         public async Task<IHttpActionResult> GetTime(string city)
         {
-            return await GetLocalTimeInternal(city, string.Empty);
+            return await GetLocalTimeInternal(city);
         }
 
         [HttpGet]
@@ -37,7 +37,7 @@ namespace WebApiRestServiceExample.Controllers
             return await GetLocalTimeInternal(city, country);
         }
 
-        private async Task<IHttpActionResult> GetLocalTimeInternal(string city, string country)
+        private async Task<IHttpActionResult> GetLocalTimeInternal(string city, string country = null)
         {
             var timeZoneName = await googleMapsProvider.GetTimeZoneName(city, country);
             if (string.IsNullOrEmpty(timeZoneName))
